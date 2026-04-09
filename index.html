@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kratoxs - CS2 Case Simulator</title>
+    <style>
+        body {
+            background-color: #0b0e11;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .header {
+            padding: 20px;
+            background: linear-gradient(90deg, #1a1c23 0%, #2c2f3a 100%);
+            border-bottom: 2px solid #5e4bd8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .case-container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            background: #161921;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+        }
+        .item-display {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            border: 2px dashed #444;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        button {
+            background: #5e4bd8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #7a66ff;
+            transform: scale(1.05);
+        }
+        .chat-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1c23;
+        }
+        .contact-btn {
+            background: #24292e;
+            border: 1px solid #5e4bd8;
+            margin: 5px;
+            padding: 10px 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #00ff00;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>KRATOXS CASE OPENER</h1>
+        <p>Tamamen Ücretsiz - Sınırsız Kasa</p>
+    </div>
+
+    <div class="case-container">
+        <div id="display" class="item-display">Kasa Açılmaya Hazır...</div>
+        <button onclick="openCase()">KASAYI AÇ (BEDAVA)</button>
+    </div>
+
+    <div class="chat-section">
+        <h3>Arkadaşımla Nasıl Konuşurum?</h3>
+        <p>Henüz bir sohbet sistemi kurmadıysan aşağıdaki butonları kullanabilirsin:</p>
+        <a href="https://t.me/kullaniciadin" target="_blank" class="contact-btn">Telegram'dan Yaz</a>
+        <a href="https://discord.gg/davetkodu" target="_blank" class="contact-btn">Discord Sunucum</a>
+    </div>
+
+    <script>
+        const items = [
+            { name: "P250 | Kum Püskürtme", color: "#4b69ff" },
+            { name: "AK-47 | Safir", color: "#d32ee6" },
+            { name: "AWP | Ejderha Hikayesi", color: "#eb4b4b" },
+            { name: "M9 Bayonet | Doppler", color: "#eb4b4b" },
+            { name: "Glock-18 | Elma Şekeri", color: "#8847ff" }
+        ];
+
+        function openCase() {
+            const display = document.getElementById('display');
+            display.innerText = "Açılıyor...";
+            display.style.color = "white";
+            
+            setTimeout(() => {
+                const randomItem = items[Math.floor(Math.random() * items.length)];
+                display.innerText = randomItem.name;
+                display.style.color = randomItem.color;
+                display.style.borderColor = randomItem.color;
+                alert("Tebrikler! Kazandın: " + randomItem.name);
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
